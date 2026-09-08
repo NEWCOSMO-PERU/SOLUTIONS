@@ -98,7 +98,13 @@
         }
 
         .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .nav-logo-img { height: 40px; width: auto; transition: transform 0.3s ease; }
+        /* LOGO HEADER MÁS GRANDE Y CON MÁS BRILLO */
+        .nav-logo-img { 
+            height: 52px; 
+            width: auto; 
+            transition: transform 0.3s ease; 
+            filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.8)) drop-shadow(0 0 25px rgba(0, 242, 254, 0.5));
+        }
         .nav-brand:hover .nav-logo-img { transform: scale(1.05); }
 
         .nav-logo-text { font-weight: 800; font-size: 1.4rem; background: linear-gradient(135deg, var(--primary), #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -151,7 +157,13 @@
         #hero-canvas { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
         .hero-content { position: relative; z-index: 1; max-width: 900px; }
         .hero-logo-container { margin-bottom: 25px; display: inline-block; }
-        .hero-logo { height: 220px; width: auto; filter: drop-shadow(0 0 50px rgba(0, 242, 254, 0.3)); animation: float 6s ease-in-out infinite; }
+        /* LOGO PRINCIPAL HERO MÁS GRANDE Y CON MÁS BRILLO INTENSO */
+        .hero-logo { 
+            height: 270px; 
+            width: auto; 
+            filter: drop-shadow(0 0 25px rgba(0, 242, 254, 0.6)) drop-shadow(0 0 65px rgba(0, 242, 254, 0.4)); 
+            animation: float 6s ease-in-out infinite; 
+        }
         @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
 
         header h1 {
@@ -188,13 +200,13 @@
         }
         .filter-btn:hover, .filter-btn.active { background: var(--text-main); color: var(--bg-main); border-color: var(--text-main); }
 
-        /* --- TARJETAS CON EFECTO TILT 3D SUTIL --- */
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 30px; }
+        /* --- TARJETAS MÁS COMPACTAS --- */
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         
         .card {
             background: var(--bg-card);
             backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            padding: 35px; border-radius: 24px;
+            padding: 22px; border-radius: 18px;
             border: 1px solid var(--border-color);
             transition: transform 0.1s ease, background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
             position: relative; overflow: hidden;
@@ -220,12 +232,12 @@
         .card[data-category="design"]:hover { border-color: rgba(236, 72, 153, 0.5); box-shadow: 0 20px 35px -10px rgba(236, 72, 153, 0.25); }
         .card[data-category="tools"]:hover { border-color: rgba(245, 158, 11, 0.5); box-shadow: 0 20px 35px -10px rgba(245, 158, 11, 0.25); }
 
-        .card-header-wrapper { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+        .card-header-wrapper { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
 
         .card-icon-box {
-            width: 58px; height: 58px; border-radius: 16px;
+            width: 44px; height: 44px; border-radius: 12px;
             display: flex; justify-content: center; align-items: center;
-            font-size: 1.75rem; background: rgba(255, 255, 255, 0.04);
+            font-size: 1.3rem; background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--border-color); transition: var(--transition);
         }
 
@@ -236,13 +248,13 @@
         .card:hover .card-icon-box { transform: scale(1.1) rotate(6deg); }
 
         .card-badge {
-            font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
-            padding: 6px 12px; border-radius: 20px; background: rgba(255, 255, 255, 0.05);
+            font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            padding: 4px 10px; border-radius: 20px; background: rgba(255, 255, 255, 0.05);
             color: var(--text-muted); border: 1px solid var(--border-color);
         }
 
-        .card h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--text-main); font-weight: 700; letter-spacing: -0.3px; }
-        .card p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.65; margin-bottom: 0; }
+        .card h3 { font-size: 1.15rem; margin-bottom: 8px; color: var(--text-main); font-weight: 700; letter-spacing: -0.3px; }
+        .card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; margin-bottom: 0; }
 
         .card.hidden { display: none; }
 
@@ -274,95 +286,6 @@
             background: linear-gradient(135deg, var(--text-main), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px;
         }
         .stat-label { color: var(--text-muted); font-size: 1rem; font-weight: 600; }
-
-        /* PLANES DE COTIZACIÓN Y PAGOS YAPE/PLIN */
-        .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .price-card {
-            background: var(--bg-card); padding: 45px 30px; border-radius: 24px; border: 1px solid var(--border-color);
-            display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition); position: relative;
-        }
-        .price-card.featured { border-color: var(--primary); background: linear-gradient(180deg, rgba(0, 242, 254, 0.05), var(--bg-card)); }
-        .price-card.featured::after {
-            content: 'RECOMENDADO'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-            background: linear-gradient(135deg, var(--primary), #2563eb); color: #fff; padding: 4px 16px;
-            font-size: 0.75rem; font-weight: 800; border-radius: 20px;
-        }
-        .price-card:hover { transform: translateY(-5px); }
-        .price-card h3 { font-size: 1.6rem; color: var(--text-main); font-weight: 700; margin-bottom: 10px; }
-        .price-card ul { list-style: none; margin: 25px 0 35px 0; color: var(--text-muted); font-size: 0.95rem; }
-        .price-card ul li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-        .price-card ul li i { color: #10b981; }
-
-        .price-amount {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--text-main);
-            margin-bottom: 15px;
-        }
-        .price-amount span {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .payment-methods-grid {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        .pay-btn {
-            flex: 1;
-            padding: 10px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            background: rgba(255, 255, 255, 0.03);
-            color: var(--text-main);
-            font-weight: 700;
-            font-size: 0.85rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: var(--transition);
-        }
-        .pay-btn.yape-btn:hover, .pay-btn.yape-btn.active {
-            background: #742284;
-            border-color: #742284;
-            color: #fff;
-        }
-        .pay-btn.plin-btn:hover, .pay-btn.plin-btn.active {
-            background: #00b4d8;
-            border-color: #00b4d8;
-            color: #fff;
-        }
-
-        /* MODAL DE PASARELA YAPE / PLIN */
-        .modal-overlay {
-            position: fixed; inset: 0; background: rgba(3, 7, 18, 0.8);
-            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-            display: flex; justify-content: center; align-items: center;
-            z-index: 10005; opacity: 0; visibility: hidden; transition: all 0.3s ease;
-            padding: 20px;
-        }
-        .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-container {
-            background: var(--bg-main); border: 1px solid var(--border-color);
-            border-radius: 24px; width: 100%; max-width: 450px; padding: 30px;
-            position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            transform: translateY(20px); transition: transform 0.3s ease;
-        }
-        .modal-overlay.active .modal-container { transform: translateY(0); }
-        .modal-close {
-            position: absolute; top: 20px; right: 20px; background: none; border: none;
-            color: var(--text-muted); font-size: 1.2rem; cursor: pointer;
-        }
-        .modal-close:hover { color: var(--text-main); }
-        .qr-box {
-            background: #fff; padding: 15px; border-radius: 16px; width: 200px; height: 200px;
-            margin: 20px auto; display: flex; justify-content: center; align-items: center;
-        }
-        .qr-box img { width: 100%; height: 100%; object-fit: contain; }
 
         /* FAQ ACCORDION */
         .faq-accordion { max-width: 800px; margin: 0 auto; }
@@ -471,7 +394,7 @@
         @media(max-width:900px){
             .contact-container { grid-template-columns: 1fr; padding: 30px; }
             .proyecto-card-wrapper { padding: 30px 20px; }
-            .whatsapp-tooltip { display: none; } /* Ocultar tooltip en móviles pequeños para evitar estorbar */
+            .whatsapp-tooltip { display: none; }
         }
         
         /* ========================================= */
@@ -666,7 +589,6 @@
         <li><a href="#facebook" class="nav-link">Facebook</a></li>
         <li><a href="#proyectos" class="nav-link">Nuestros Proyectos</a></li>
         <li><a href="#faq" class="nav-link">FAQ</a></li>
-        <li><a href="#cotizacion" class="nav-link">Cotización</a></li>
         <li><a href="#contacto" class="nav-link">Contacto</a></li>
         <li class="theme-toggle-wrapper">
             <button class="theme-toggle-btn" id="theme-toggle" aria-label="Cambiar tema de color">
@@ -1008,91 +930,6 @@
         </div>
     </section>
 
-    <!-- COTIZACIÓN & PASARELA DE PAGOS YAPE / PLIN -->
-    <section id="cotizacion" class="reveal">
-        <div class="title">
-            <h2>Solicita tu Cotización y Pago Rápido</h2>
-            <p>Elige tu plan, selecciona tu método de pago local favorito (Yape o Plin) o comunícate vía WhatsApp.</p>
-        </div>
-
-        <div class="pricing">
-            <!-- Plan 1 -->
-            <div class="price-card">
-                <div>
-                    <h3>Soporte Técnico & Móvil</h3>
-                    <p style="color:var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Soluciones físicas y lógicas para PC, laptops y smartphones.</p>
-                    <div class="price-amount" data-soles="50.00">S/ 50.00 <span>/ servicio base</span></div>
-                    
-                    <div class="payment-methods-grid">
-                        <button class="pay-btn yape-btn" onclick="openPaymentModal('Soporte Técnico', '50.00', 'Yape')">
-                            <i class="fa-solid fa-qrcode"></i> Yape
-                        </button>
-                        <button class="pay-btn plin-btn" onclick="openPaymentModal('Soporte Técnico', '50.00', 'Plin')">
-                            <i class="fa-solid fa-qrcode"></i> Plin
-                        </button>
-                    </div>
-
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> Formateo de celulares & PC/Laptops</li>
-                        <li><i class="fa-solid fa-check"></i> Instalación de Apps Premium & Software</li>
-                        <li><i class="fa-solid fa-check"></i> Antivirus, seguridad & optimización</li>
-                    </ul>
-                </div>
-                <a href="https://wa.me/51907546093?text=Hola,%20me%20gustar%C3%ADa%20cotizar%20un%20servicio%20de%20Soporte%20T%C3%A9cnico." target="_blank" class="btn btn-secondary" style="width:100%; justify-content:center;">Consultar WhatsApp</a>
-            </div>
-
-            <!-- Plan 2 (Featured) -->
-            <div class="price-card featured">
-                <div>
-                    <h3>Diseño & Social Media</h3>
-                    <p style="color:var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Proyectos creativos y gestión integral de marca digital.</p>
-                    <div class="price-amount" data-soles="150.00">S/ 150.00 <span>/ pack base</span></div>
-                    
-                    <div class="payment-methods-grid">
-                        <button class="pay-btn yape-btn" onclick="openPaymentModal('Diseño y Social Media', '150.00', 'Yape')">
-                            <i class="fa-solid fa-qrcode"></i> Yape
-                        </button>
-                        <button class="pay-btn plin-btn" onclick="openPaymentModal('Diseño y Social Media', '150.00', 'Plin')">
-                            <i class="fa-solid fa-qrcode"></i> Plin
-                        </button>
-                    </div>
-
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> Diseño Web & Auditorías Técnicas SEO</li>
-                        <li><i class="fa-solid fa-check"></i> Diseño de Publicaciones & Reels</li>
-                        <li><i class="fa-solid fa-check"></i> Branding & Gestión de Redes Sociales</li>
-                    </ul>
-                </div>
-                <a href="https://wa.me/51907546093?text=Hola,%20me%20gustar%C3%ADa%20cotizar%20un%20servicio%20de%20Dise%C3%B1o%20y%20Redes%20Sociales." target="_blank" class="btn btn-primary" style="width:100%; justify-content:center;">Consultar WhatsApp</a>
-            </div>
-
-            <!-- Plan 3 -->
-            <div class="price-card">
-                <div>
-                    <h3>Herramientas Digitales</h3>
-                    <p style="color:var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Servicios utilitarios y creación de contratos blockchain.</p>
-                    <div class="price-amount" data-soles="80.00">S/ 80.00 <span>/ servicio base</span></div>
-                    
-                    <div class="payment-methods-grid">
-                        <button class="pay-btn yape-btn" onclick="openPaymentModal('Herramientas Digitales', '80.00', 'Yape')">
-                            <i class="fa-solid fa-qrcode"></i> Yape
-                        </button>
-                        <button class="pay-btn plin-btn" onclick="openPaymentModal('Herramientas Digitales', '80.00', 'Plin')">
-                            <i class="fa-solid fa-qrcode"></i> Plin
-                        </button>
-                    </div>
-
-                    <ul>
-                        <li><i class="fa-solid fa-check"></i> Creación de Tokens Cripto</li>
-                        <li><i class="fa-solid fa-check"></i> Conversión de formatos masivos</li>
-                        <li><i class="fa-solid fa-check"></i> QR de marca & Enlaces seguros</li>
-                    </ul>
-                </div>
-                <a href="https://wa.me/51907546093?text=Hola,%20me%20gustar%C3%ADa%20cotizar%20un%20servicio%20de%20Herramientas%20Digitales." target="_blank" class="btn btn-secondary" style="width:100%; justify-content:center;">Consultar WhatsApp</a>
-            </div>
-        </div>
-    </section>
-
     <!-- CONTACTO -->
     <section id="contacto" class="reveal">
         <div class="contact-container">
@@ -1116,32 +953,6 @@
         </div>
     </section>
 </main>
-
-<!-- MODAL DE PAGO YAPE / PLIN -->
-<div class="modal-overlay" id="payment-modal">
-    <div class="modal-container">
-        <button class="modal-close" onclick="closePaymentModal()"><i class="fa-solid fa-xmark"></i></button>
-        <div style="text-align: center;">
-            <h3 id="modal-title" style="font-size: 1.4rem; font-weight: 800; margin-bottom: 5px;">Pago con Yape / Plin</h3>
-            <p id="modal-subtitle" style="color: var(--text-muted); font-size: 0.9rem;">Escanea el código QR o realiza la transferencia al número indicado.</p>
-            
-            <div class="qr-box">
-                <!-- Simulación de código QR genérico o institucional -->
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=NewCosmoSolucionesPago" alt="QR Yape Plin NewCosmo">
-            </div>
-
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); padding: 12px; border-radius: 12px; margin-bottom: 20px;">
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Número de Celular Destino:</p>
-                <p style="font-size: 1.2rem; font-weight: 800; color: var(--primary);">+51 907 546 093</p>
-                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Titular: NewCosmo Soluciones</p>
-            </div>
-
-            <button type="button" class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="confirmPaymentWhatsApp()">
-                <i class="fa-brands fa-whatsapp"></i> Ya pagué, enviar comprobante
-            </button>
-        </div>
-    </div>
-</div>
 
 <!-- NOTIFICACIÓN TOAST -->
 <div id="toast-msg"><i class="fa-solid fa-circle-check"></i> ¡Mensaje enviado con éxito! Nos comunicaremos pronto.</div>
@@ -1169,7 +980,7 @@
 <!-- ========================================= -->
 <footer class="site-footer">
     <div class="footer-container">
-        <!-- Columna 1: Branding y Descripción (Con iconos de Facebook, WhatsApp, Store, Manuales, Wallpaper y Tonos) -->
+        <!-- Columna 1: Branding y Descripción -->
         <div class="footer-col">
             <a href="#" class="footer-logo">
                 <img src="logo.png" alt="Logo NewCosmo">
@@ -1206,7 +1017,7 @@
                 <li><a href="https://newcosmo-peru.github.io/STORE/" target="_blank"><i class="fa-solid fa-chevron-right"></i> Tienda Online</a></li>
                 <li><a href="#proyectos"><i class="fa-solid fa-chevron-right"></i> Proyectos Realizados</a></li>
                 <li><a href="#faq"><i class="fa-solid fa-chevron-right"></i> Preguntas Frecuentes</a></li>
-                <li><a href="#cotizacion"><i class="fa-solid fa-chevron-right"></i> Solicitud de Cotización</a></li>
+                <li><a href="#contacto"><i class="fa-solid fa-chevron-right"></i> Contacto Directo</a></li>
             </ul>
         </div>
 
@@ -1321,7 +1132,7 @@
             const y = e.clientY - rect.top;
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -4; // Inclinación suave de 4 grados
+            const rotateX = ((y - centerY) / centerY) * -4;
             const rotateY = ((x - centerX) / centerX) * 4;
 
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
@@ -1440,33 +1251,6 @@
     }, { threshold: 0.1 });
 
     observer.observe(document.querySelector('header'));
-
-    // GESTIÓN DE MODAL DE PAGO (YAPE / PLIN)
-    let selectedServicePlan = '';
-    let selectedPlanAmount = '';
-    let selectedPaymentApp = '';
-
-    function openPaymentModal(serviceName, amount, appName) {
-        selectedServicePlan = serviceName;
-        selectedPlanAmount = amount;
-        selectedPaymentApp = appName;
-
-        document.getElementById('modal-title').textContent = `Pago vía ${appName}`;
-        document.getElementById('modal-subtitle').textContent = `Plan: ${serviceName} (S/ ${amount})`;
-        
-        document.getElementById('payment-modal').classList.add('active');
-    }
-
-    function closePaymentModal() {
-        document.getElementById('payment-modal').classList.remove('active');
-    }
-
-    function confirmPaymentWhatsApp() {
-        const text = `Hola, acabo de realizar el pago de S/ ${selectedPlanAmount} vía ${selectedPaymentApp} for el servicio de *${selectedServicePlan}*. Adjunto mi comprobante.`;
-        const encodedText = encodeURIComponent(text);
-        window.open(`https://wa.me/51907546093?text=${encodedText}`, '_blank');
-        closePaymentModal();
-    }
 
     // ENVÍO DE FORMULARIO CON TOAST
     function handleFormSubmit(e) {
